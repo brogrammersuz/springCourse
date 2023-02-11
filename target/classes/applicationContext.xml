@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="classicalMusic" class="uz.brogrammers.ClassicalMusic">
+    <context:component-scan base-package="uz.brogrammers"></context:component-scan>
+
+    <!--
+    <bean id="classicalMusic" class="uz.brogrammers.ClassicalMusic" init-method="init" destroy-method="destroy">
     </bean>
+    -->
 
-    <bean id="rockMusic" class="uz.brogrammers.RockMusic"></bean>
+    <!--<bean id="rockMusic" class="uz.brogrammers.RockMusic"></bean> -->
 
-    <bean id="musicPlayer" class="uz.brogrammers.MusicPlayer">
-        <constructor-arg ref="rockMusic"></constructor-arg>
+
+    <!--    <bean id="musicPlayer" class="uz.brogrammers.MusicPlayer">
+        <constructor-arg name="music" ref="rockMusic"></constructor-arg>
+        <constructor-arg name="name" value="Sony"></constructor-arg>
+        <constructor-arg name="volume" value="70"></constructor-arg>
+    </bean>-->
+
+
+    <!--
+    <bean id="musicPlayer" class="uz.brogrammers.MusicPlayer" scope="prototype">
+        <property name="music" ref="rockMusic"></property>
+        <property name="name" value="Sony"></property>
+        <property name="volume" value="70"></property>
     </bean>
+    -->
 
 </beans>
